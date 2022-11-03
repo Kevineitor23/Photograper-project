@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-##$9y()o**_wc!ea97v#tgj5#(+u=z=)nyq+a3&y5y2uos$a9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://kevineitor23.github.io/Photograper-project/']
 
 
 # Application definition
