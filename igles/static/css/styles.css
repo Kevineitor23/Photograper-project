@@ -1,0 +1,109 @@
+body{
+  background-color: rgba(254, 254, 254, 0.471);
+}
+
+form label{
+  display: none;
+}
+
+
+/* MODALES PAYPAL*/
+#modal {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: fixed;
+  z-index: 3;
+  top: -100vh;
+  left: 25%;
+  height: 60vh;
+  width: 50vw;
+  transition: all .5s;
+}
+
+#modal p {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#mostrar-modal {
+  display: none;
+}
+
+#mostrar-modal + label{
+  padding: 0 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#mostrar-modal + label:hover {
+  background: rgba(34, 34, 34, 0.711);
+}
+
+#mostrar-modal:checked ~ #modal {
+  top: 30%;
+}
+
+#cerrar-modal{
+  display: none;
+}
+
+div #cerrar-modal + label {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  color: rgb(40, 126, 255);
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(254, 254, 254);
+  width: 85px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  transition: all .5s;
+}
+
+#mostrar-modal:checked ~ #cerrar-modal + label {
+  display: block;
+}
+
+/* PAYPAL  LABEL*/
+#i{
+  font-size: 36px;
+  background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%);
+}  
+
+label{
+  background: #2828280f ;
+  box-shadow: 0 0 20px rgb(77, 77, 77);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+label:hover {
+  background-image: linear-gradient(to right, #232526 0%, #181818  51%, #232526  100%);
+  margin: 10px;
+  padding: 15px 20px;
+  background-position: right center; /* change the direction of the change here */
+  text-decoration: none;
+  color: rgb(246, 246, 246);           
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+
+}
+
+/* FOOTER */
+
+.containerfooter {
+  display: flex;
+  justify-content: center
+}
+

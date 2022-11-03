@@ -1,0 +1,49 @@
+{% extends 'home/index.html' %}
+{% load crispy_forms_tags %}
+
+{% block 'content' %}
+
+<body id="cuerpo">
+
+  <!-- FORMULARIO DE CONTACTO -->
+  <section class="py-5 text-center container">
+    <form class="form-check-inline" action= "{% url 'igles:formulario'%}" method="post" autocomplete= "off" id="login" onsubmit="process(event)">
+      {% csrf_token %}
+      {{ formcontacto.name | as_crispy_field }}{{ formcontacto.motivo | as_crispy_field }}
+      <input id="phone" type="tel" name="phone" />
+      <button class="btn text-bg-dark">SEND</button>
+    </form>
+    <div class="alert alert-info" style="display: none;"></div>
+  </section>
+
+  <!-- MENSAJE FORMULARIO -->
+  {% if name %}
+  <div class="container py-2 col-2 justify-content-end">
+    <div class="alert alert-success" role="alert">
+      Succesfully!
+      <a href="{% url 'igles:home' %}" class="btn btn-dark">Back Home</a>
+    </div>
+  </div>
+  {% endif %}
+</body>
+
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  </script>
+
+{% endblock 'content' %}
+
+
+ 
+  
+
+
+
+
+
+
+

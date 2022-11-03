@@ -1,0 +1,74 @@
+{% extends "home/index.html" %}
+{% load crispy_forms_tags %}
+
+{% block 'content' %}
+<!-- NABVAR -->
+<div class="navbar navbar-dark bg-opacity-20 bg-dark shadow-sm justify-content-center">
+  <a href="{% url 'igles:formulario' %}" class="btn btn-dark">Contacto</a>
+</div>
+
+
+<!-- DESCRIPTION -->
+<section class="py-5 text-center container">
+  <div class="row py-lg-5 " >
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Album example</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FORMULARIO  DE SELECCION -->
+<section class="py-5 text-center container">
+    <form class="form-check-inline" action= "{% url 'igles:home' %}" method="post" autocomplete= "off">
+      {% csrf_token %}
+      {{ form.name | as_crispy_field }}
+      &nbsp;
+    </form>
+</section>
+
+<!-- SECCION DE PRODUCTOS  -->
+    <div class="album py-4 bg-dark" id= "nuevo">
+      <div class=" container ">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-2" >
+          {% for i in photos %}
+          <div class="col ">
+            <div class="card shadow-sm bg-dark">
+              <img src="{{i.original}}" alt="220px" height=" 200px"  class="border-5">
+              <div class="card-body">
+                <h2 class="text-light font-monolit" >{{i.photographer}}</h2>
+                <p class="text-info">TICKET {{i.id}} </p>
+                <div class="d-flex justify-content-evenly align-items-center">
+
+                  <!--MODAL PAYPAL -->
+                  <input id="mostrar-modal" name="modal" type="radio" /> 
+                  <label for="mostrar-modal">
+                    <i class="fa-brands fa-cc-paypal" id="i"></i>
+                  </label>
+                  <div id="modal">
+                    <p>No Hay Una Cuenta De Pago Asociada</p>
+                    <input id="cerrar-modal" name="modal" type="radio" /> 
+                    <label for="cerrar-modal">x</label> 
+                  </div>
+                  <small class="text-info">Rigth Now</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  <footer class="text-muted py-5 bg-black  justify-content-center">
+    <div class="containerfooter">
+      <a href="">
+        <p class="mb-1">Created By ©KevinCorredor   <i class="fa-brands fa-github"></i></p>
+      </a>
+    </div>
+  </footer>
+
+{% endblock 'content' %}
+
+
